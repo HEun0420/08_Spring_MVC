@@ -125,7 +125,8 @@ public class FirstController {
 }
 
 /*
-* 4-1
+* 4-1. session 이용하기
+* HttpSession 매개변수로 선언하면 핸들러 메소드 호출 시 객체를 넣어서 호출한다.
  */
 
 @PostMapping("login1")
@@ -168,12 +169,13 @@ public class FirstController {
 
     @PostMapping("body")
     public void bodyTest(@RequestBody String body,
-                         @RequestHeader("content-type")String contentType,
-                         @CookieValue(value = "JSESSIONID", required = false)String sessionId) throws UnsupportedEncodingException {
-        System.out.println("contentType =" + contentType);
+                         @RequestHeader("content-type") String contentType,
+                         @CookieValue(value = "JSESSIONID", required = false) String sessionId) throws UnsupportedEncodingException {
+
+        System.out.println("contentType = " + contentType);
         System.out.println("sessionId = " + sessionId);
         System.out.println("body = " + body);
-        System.out.println("body = " + URLDecoder.decode(body,"UTF-8"));
+        System.out.println("body = " + URLDecoder.decode(body, "UTF-8"));
     }
 
 
