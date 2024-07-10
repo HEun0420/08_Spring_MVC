@@ -14,7 +14,7 @@ public class ExceptionHandlerController {
         String str = null;
         System.out.println(str.charAt(0));
 
-        return "/";
+        return "/"; // 메인으로 가
     }
 
     @ExceptionHandler(NullPointerException.class)
