@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>기본페이지</title>
+</head>
+<body>
+    <div id="container">
+        <header th:include="~{fragments/header::header}"></header>
+        <section>
+            <div layout:fragment="content"></div>
+        </section>
+        <footer th:include="~{fragments/footer::footer}"></footer>
+    </div>
+</body>
+</html>

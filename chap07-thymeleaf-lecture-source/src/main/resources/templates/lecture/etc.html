@@ -5,11 +5,11 @@
     <title>etc</title>
 </head>
 <body>
-    <h1>기타</h1>
+    <h1> 기타 </h1>
     <h2>th:with</h2>
     <h3>지역 변수를 지정해서 쓸 수 있다.</h3>
-        <th:block th:with="start = ${selectCriteria.startPage}, last= ${selectCriteria.endPage}">
-            <th:block th:each="p : ${#numbers.sequence(start,last)}">
+        <th:block th:with="start = ${ selectCriteria.startPage}, last =${ selectCriteria.endPage}">
+            <th:block th:each="p : ${#numbers.sequence(start, last)}">
                 <th:block th:if="${selectCriteria.pageNo eq p}">
                     <button th:text="${p}" disabled></button>
                 </th:block>
@@ -28,25 +28,25 @@
 
     <p>Object</p>
     <ul>
-        <li th:text="${member.name}"></li>
-        <li th:text="${member['age']}"></li>
-        <li th:text="${member.getGender()}"></li>
+        <li th:text = "${ member.name }"></li>
+        <li th:text = "${ member['name'] }"></li>
+        <li th:text = "${ member.getGender() }"></li>
     </ul>
 
-<p>List</p>
-<ul>
-    <li th:text="${memberList[1].name}"></li>
-    <li th:text="${memberList[1].age}"></li>
-    <li th:text="${memberList[1].getGender()}"></li>
-    <li th:text="${memberList.get(1).getGender()}"></li>
-    <li th:text="${memberList.get(1).address}"></li>
-</ul>
+    <p>List</p>
+    <ul>
+        <li th:text="${memberList[1].name}"></li>
+        <li th:text="${memberList[1]['age']}"></li>
+        <li th:text="${memberList[1].getGender()}"></li>
+        <li th:text="${memberList.get(1).getGender()}"></li>
+        <li th:text="${memberList.get(1).address}"></li>
+    </ul>
 
-<p>Map</p>
-<ul>
-    <li th:text="${memberMap['m03'].name}"></li>
-    <li th:text="${memberMap['m03']['age']}"></li>
-    <li th:text="${memberMap['m03'].getGender}"></li>
-</ul>
+    <p>Map</p>
+    <ul>
+        <li th:text="${memberMap['m03'].name}"></li>
+        <li th:text="${memberMap['m03']['age']}"></li>
+        <li th:text="${memberMap['m03'].getGender}"></li>
+    </ul>
 </body>
 </html>
