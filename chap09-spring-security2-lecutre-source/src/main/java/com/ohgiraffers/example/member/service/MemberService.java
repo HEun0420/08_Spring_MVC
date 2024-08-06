@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -29,6 +31,13 @@ public class MemberService {
         Member savedMember = memberRepository.save(member);
 
         log.info("저장된 번호:{}" , savedMember.getMemberNo());
+    }
+
+    public Member findMemberById(String memberId){
+        Member member=memberRepository.findMemberByMemberId(memberId)
+                .orElseThrow(() -> new NoSuchElementException("회원을 찾을 수 없습니다"));
+
+        return member;
     }
 
 
